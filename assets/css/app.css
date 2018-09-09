@@ -1,0 +1,73 @@
+html, body { width: 100%; height: 100%; }
+html { font-size: 62.5%; }
+body { font-size: 12px; font-size: 1.2rem; font-family: 'Microsoft Yahei', SimSun, Helvetica; background-color: #000; }
+
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+a, img { -webkit-touch-callout: none; outline: none; } 
+
+.layout { position: relative; width: 100%; height: 100%; transform: translate3d(0, 0, 0); overflow: hidden; transform-style: preserve-3d; backface-visibility: hidden; perspective: 1000; }
+.layout img { border: none; vertical-align: top; }
+
+.loading { position: absolute; top: 0; left: 0; z-index: 200; width: 100%; height: 100%; background-color: #b2c3b3;}
+.loading .icon { position: absolute; top: 50%; left: 50%; width: 5rem; transform: translate(-50%, -50%); }
+.loading .icon img { width: 100%; }
+.loading .letter-holder { display: flex; justify-content: space-between; width: 7rem; padding: 1rem 0; margin-left: -1rem; }
+.loading .letter { font-size: 1.4rem; color: #777; animation-name: loadingF; animation-duration: 1.6s; animation-iteration-count: infinite; animation-direction: linear; }
+
+.l-1 {animation-delay: .48s;}
+.l-2 {animation-delay: .6s;}
+.l-3 {animation-delay: .72s;}
+.l-4 {animation-delay: .84s;}
+.l-5 {animation-delay: .96s;}
+.l-6 {animation-delay: 1.08s;}
+.l-7 {animation-delay: 1.2s;}
+.l-8 {animation-delay: 1.32s;}
+.l-9 {animation-delay: 1.44s;}
+.l-10 {animation-delay: 1.56s;}
+
+@keyframes loadingF {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.galaxy { position: absolute; top: -1px; left: -1px; z-index: 100; width: 100%; height: 100%; background-color: #000; background-image: url('../imgs/galaxy_bg.gif'); background-repeat: no-repeat; background-size: cover; background-position: center center; }
+.galaxy .message { position: absolute; top: 50%; left: 0; width: 100%; transform: translateY(-50%); color: #fff; }
+.galaxy .message p { font-size: 2rem; line-height: 3rem; text-align: center; }
+
+.galaxy .earth { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.galaxy .earth .inner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;  }
+.galaxy .earth .inner > img { display: none; width: 100%; vertical-align: top; }
+.galaxy .earth .inner .movie-player { display: flex; flex-direction: column; justify-content: center; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: url('../imgs/player_bg.jpg') no-repeat; background-size: cover; background-position: center center; opacity: 0; }
+.galaxy .earth .inner .movie-player img { width: 100%; }
+.galaxy .earth .inner .movie-player .btn { width: 30%; margin-top: 2rem; }
+.galaxy .earth .inner .movie-player .first-login-msg {
+  width: 100%;
+  margin-top: 3rem;
+}
+.galaxy .earth .inner .movie-player .first-login-msg p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+  color: #111;
+  font-weight: 500;
+  text-shadow: 0 0 5px #fff;
+}
+
+.movies { display: none; position: absolute; top: 0; left: 0; z-index: 110; width: 100%; height: 100%; background-color: #6c6c6c; background-image: url('../imgs/movies_animate.gif'); background-size: cover; background-repeat: no-repeat; background-position: bottom center; }
+.movies .swiper-container { width: 100%; height: 100%; }
+.movies .swiper-button-prev, .movies .swiper-button-next { outline: none; }
+.movies .swiper-slide { display: flex; flex-direction: column; justify-content: space-around; align-items: center; }
+.movies .swiper-slide .screen { position: relative; width: 100%; }
+.movies .swiper-slide .screen > img { width: 100%; }
+.movies .swiper-slide .text { position: relative; width: 100%; }
+.movies .swiper-slide .text > img { width: 100%; }
+.movies .swiper-slide .text .msg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.movies .swiper-slide .text p { margin: 0; padding: 0; font-size: 1.6rem; text-align: center; line-height: 3rem; color: #1e0707; }
+.movies .movie_02 .screen .box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; }
+.movies .movie_02 .screen .box img { width: 20%; height: auto; position: relative; }
+.movies .movie_02 .screen .box img:nth-of-type(1) { bottom: -4%; }
+.movies .movie_02 .screen .box img:nth-of-type(2) { top: -4%; }
+.movies .movie_02 .screen .box img:nth-of-type(3) { bottom: -4%; }
+.movies .movie_02 .screen .box img:nth-of-type(4) { top: -4%; }
