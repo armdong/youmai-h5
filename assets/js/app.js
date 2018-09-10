@@ -9,7 +9,29 @@
   function preLoadImg() {
     var imgs = [
       '/assets/imgs/loading.png',
-      '/assets/imgs/galaxy_bg.gif'
+      '/assets/imgs/galaxy_bg.gif',
+      '/assets/imgs/earth_animate.gif',
+      '/assets/imgs/hand_animate.gif',
+      '/assets/imgs/movies_animate.gif',
+      '/assets/imgs/movie_player.gif',
+      '/assets/imgs/movies_screen_bg.jpg',
+      '/assets/imgs/movies_text_bg.png',
+      '/assets/imgs/player_bg.jpg',
+      '/assets/imgs/movie_01.jpg',
+      '/assets/imgs/movie_02_01.png',
+      '/assets/imgs/movie_02_02.png',
+      '/assets/imgs/movie_02_03.png',
+      '/assets/imgs/movie_02_04.png',
+      '/assets/imgs/movie_03_01.gif',
+      '/assets/imgs/movie_03_02.gif',
+      '/assets/imgs/movie_03_03.gif',
+      '/assets/imgs/movie_03_04.gif',
+      '/assets/imgs/movie_03_05.gif',
+      '/assets/imgs/movie_04.gif',
+      '/assets/imgs/movie_05.gif',
+      '/assets/imgs/movie_06.gif',
+      '/assets/imgs/movie_07.gif',
+      '/assets/imgs/movie_08.gif'
     ];
 
     $.imgpreload(imgs, {
@@ -27,12 +49,6 @@
 
   // message typer
   function showMessageTyper() {
-    var msgOne = '2015 年 9 月 20 日';
-    var msgTwo = '优麦医生 APP 横空出世';
-
-    var typerOne = new typer('lineOne');
-    var typerTwo = new typer('lineTwo');
-
     var sound = new Howl({
       src: ['/assets/audios/typer.mp3'],
       onload: function() {
@@ -42,6 +58,12 @@
     sound.play();
 
     function soundLoaded() {
+      var msgOne = '2015 年 9 月 20 日';
+      var msgTwo = '优麦医生 APP 横空出世';
+  
+      var typerOne = new typer('lineOne');
+      var typerTwo = new typer('lineTwo');
+
       typerOne.type(msgOne).end(2000);
       typerTwo.end();
       setTimeout(function() {
@@ -100,24 +122,41 @@
       },
       on: {
         init: function() {
-          console.log(this.activeIndex);
           initAnimationItems();
           playAnimation(this);
         },
         transitionEnd: function() {
           playAnimation(this);
+        },
+        reachEnd: function() {
+          // last slide
+          setTimeout(function() {
+            $movies.fadeOut(function() {
+              initStar();
+            });
+          }, 3000);
         }
       }
     });
+  }
 
-    // swiper.on('init', function() {
-    //   initAnimationItems();
-    //   playAnimation(swiper);
-    // });
-
-    // swiper.on('transitionEnd', function() {
-    //   playAnimation(swiper)
-    // });
+  function initStar() {
+    $('#star')
+      .show()
+      .find('>img')
+      .animate({
+        top: '50%',
+      }, 1000)
+      .animate({}, 200, function(){
+        $(this).css({
+          width: '5%',
+          left: '70%',
+          transition: 'width 3s ease-in-out, left 3.5s ease-in-out'
+        });
+      })
+      .on('transitionEnd webkitTransitionEnd', function() {
+        $('#star .text').fadeIn();
+      });
   }
 
 })(window, document, jQuery);

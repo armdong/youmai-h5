@@ -57,7 +57,7 @@ a, img { -webkit-touch-callout: none; outline: none; }
 
 .movies { display: none; position: absolute; top: 0; left: 0; z-index: 110; width: 100%; height: 100%; background-color: #6c6c6c; background-image: url('../imgs/movies_animate.gif'); background-size: cover; background-repeat: no-repeat; background-position: bottom center; }
 .movies .swiper-container { width: 100%; height: 100%; }
-.movies .swiper-button-prev, .movies .swiper-button-next { outline: none; }
+.movies .swiper-button-prev, .movies .swiper-button-next { outline: none; top: 80%; }
 .movies .swiper-slide { display: flex; flex-direction: column; justify-content: space-around; align-items: center; }
 .movies .swiper-slide .screen { position: relative; width: 100%; }
 .movies .swiper-slide .screen > img { width: 100%; }
@@ -71,3 +71,8 @@ a, img { -webkit-touch-callout: none; outline: none; }
 .movies .movie_02 .screen .box img:nth-of-type(2) { top: -4%; }
 .movies .movie_02 .screen .box img:nth-of-type(3) { bottom: -4%; }
 .movies .movie_02 .screen .box img:nth-of-type(4) { top: -4%; }
+
+.star { display: none; position: absolute; top: 0; left: 0; z-index: 100; width: 100%; height: 100%; }
+.star > img { position: absolute; top: 100%; left: 0; width: 100%; }
+.star .text { display: none; position: absolute; bottom: 50%; right: 0; width: 50%; }
+.star .text p { font-size: 1.8rem; line-height: 2.2rem; text-align: center; color: #fff; }
