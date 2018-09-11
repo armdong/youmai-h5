@@ -1,0 +1,36 @@
+{
+  "registerDate": "2015-08-30",
+  "userName": "张三",
+  "fans": ["李四", "王五", "赵六"],
+  "counts": {
+    "class": 100,
+    "message": 439,
+    "favor": 123,
+    "comment": 345
+  },
+  "activeRange": {
+    "type": 1,
+    "range": [6, 9]
+  },
+  "festvals": [
+    {
+      "type": 1,
+      "name": "元旦",
+      "date": "2017-09-29"
+    },
+    {
+      "type": 2,
+      "name": "情人节",
+      "date": "2018-02-14"
+    },
+    {
+      "type": 3,
+      "name": "中秋",
+      "date": "2017-08-15"
+    }
+  ],
+  "score": {
+    "recieve": 200,
+    "cost": 99
+  }
+}
