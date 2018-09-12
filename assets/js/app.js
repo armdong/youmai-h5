@@ -49,6 +49,7 @@
 
   // message typer
   function showMessageTyper() {
+    
     var sound = new Howl({
       src: [
         '/assets/audios/typer.mp3',
@@ -56,8 +57,6 @@
       ],
       onload: function() {
         this.play();
-      },
-      onplay: function() {
         soundLoaded();
       }
     });
