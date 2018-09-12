@@ -50,12 +50,18 @@
   // message typer
   function showMessageTyper() {
     var sound = new Howl({
-      src: ['/assets/audios/typer.mp3'],
+      src: [
+        '/assets/audios/typer.mp3',
+        '/assets/audios/typer.aac'
+      ],
       onload: function() {
+        this.play();
+      },
+      onplay: function() {
         soundLoaded();
       }
     });
-    sound.play();
+    // sound.play();
 
     function soundLoaded() {
       var msgOne = '2015 年 9 月 20 日';
@@ -70,13 +76,12 @@
         typerTwo.type(msgTwo).end(3000);
         setTimeout(function() {
           sound.stop();
-
           setTimeout(function() {
             $('#galaxy').find('.message').hide();
             initEarth();
-          }, 3000);
-        }, 2000);
-      }, 4000);
+          }, 1500);
+        }, 1800);
+      }, 2000);
     }
   }
 
@@ -113,13 +118,23 @@
     _html += '<p>'+ data.userName +'医生登录优麦星球</p>';
     $('#firstLoginMsg').html(_html);
 
+    var bgm = new Howl({
+      src: [
+        '/assets/audios/bgm.mp3',
+        '/assets/audios/bgm.aac'
+      ],
+      onplay: function() {
+        $('#earth').fadeOut(1000);
+        initMovies();
+      }
+    });
+
     $('#moviePlayer')
       .animate({
         opacity: 1
       }, 1000)
       .on('click', '.btn', function(e) {
-        $('#earth').fadeOut(1000);
-        initMovies();
+        bgm.play();
       });
   }
 
