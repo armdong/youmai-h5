@@ -52,8 +52,8 @@
     
     var sound = new Howl({
       src: [
-        '/assets/audios/typer.mp3',
-        '/assets/audios/typer.aac'
+        'assets/audios/typer.mp3',
+        'assets/audios/typer.aac'
       ],
       onload: function() {
         this.play();
@@ -119,8 +119,8 @@
 
     var bgm = new Howl({
       src: [
-        '/assets/audios/bgm.mp3',
-        '/assets/audios/bgm.aac'
+        'assets/audios/bgm.mp3',
+        'assets/audios/bgm.aac'
       ],
       onplay: function() {
         $('#earth').fadeOut(1000);
