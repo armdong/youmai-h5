@@ -1,5 +1,5 @@
 {
-  "registerDate": "2015-08-30",
+  "registerData": "2015-08-30",
   "userName": "张三",
   "fans": ["李四", "王五", "赵六"],
   "counts": {

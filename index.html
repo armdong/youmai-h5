@@ -59,19 +59,8 @@
     <!-- loading page begin -->
     <div class="loading" id="loading">
       <div class="icon">
-        <img src="assets/imgs/loading.png" alt="">
-        <div class="letter-holder">
-          <div class="l-1 letter">L</div>
-          <div class="l-2 letter">o</div>
-          <div class="l-3 letter">a</div>
-          <div class="l-4 letter">d</div>
-          <div class="l-5 letter">i</div>
-          <div class="l-6 letter">n</div>
-          <div class="l-7 letter">g</div>
-          <div class="l-8 letter">.</div>
-          <div class="l-9 letter">.</div>
-          <div class="l-10 letter">.</div>
-        </div>
+        <img src="assets/imgs/loading.gif" alt="">
+        <p>Loading...</p>
       </div>
     </div>
     <!-- loading page end -->
@@ -84,15 +73,19 @@
       </div>
       <div class="earth" id="earth">
         <div class="inner">
-          <img src="assets/imgs/earth_animate.gif" alt="">
+          <img src="assets/imgs/earth_animate.png" alt="">
           <div class="movie-player" id="moviePlayer">
-            <img src="assets/imgs/hand_animate.gif" alt="">
-            <img class="btn" src="assets/imgs/movie_player.gif" alt="">
-            <div id="firstLoginMsg" class="first-login-msg">
-              <p>2015 年 xx 月 xx 日</p>
-              <p>xxx医生登录优麦星球</p>
+            <div class="btn">
+              <div class="hand">
+                <img src="assets/imgs/hand_animate.gif" alt="">
+              </div>
+              <img src="assets/imgs/movie_player.gif" alt="">
             </div>
           </div>
+        </div>
+        <div id="firstLoginMsg" class="first-login-msg">
+          <p>2015 年 xx 月 xx 日</p>
+          <p>xxx医生登录优麦星球</p>
         </div>
       </div>
     </div>
@@ -104,7 +97,7 @@
         <div class="swiper-wrapper" id="swiperWrapper">
           <div class="swiper-slide movie_01">
             <div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">
-              <img src="assets/imgs/movie_01.jpg" alt="">
+              <img src="assets/imgs/movie_01.gif" alt="">
             </div>
             <div class="text">
               <img src="assets/imgs/movies_text_bg.png" alt="">
@@ -112,12 +105,12 @@
           </div>
           <div class="swiper-slide movie_02">
             <div class="screen">
-              <img src="assets/imgs/movies_screen_bg.jpg" alt="">
+              <img src="assets/imgs/movies_screen_bg.gif" alt="">
               <div class="box">
-                <img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.5s" data-ani-delay="0.5s" src="assets/imgs/movie_02_01.png" alt="">
-                <img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.5s" data-ani-delay="1s" src="assets/imgs/movie_02_02.png" alt="">
-                <img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.5s" data-ani-delay="1.5s" src="assets/imgs/movie_02_03.png" alt="">
-                <img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.5s" data-ani-delay="2s" src="assets/imgs/movie_02_04.png" alt="">
+                <img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.05s" data-ani-delay="0.05s" src="assets/imgs/movie_02_01.png" alt="">
+                <img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.05s" data-ani-delay="0.1s" src="assets/imgs/movie_02_02.png" alt="">
+                <img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.05s" data-ani-delay="0.15s" src="assets/imgs/movie_02_03.png" alt="">
+                <img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.05s" data-ani-delay="0.2s" src="assets/imgs/movie_02_04.png" alt="">
               </div>
             </div>
             <div class="text">
@@ -211,7 +204,7 @@
           </div>
           <div class="swiper-slide movie_10">
             <div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">
-              <img src="assets/imgs/movie_10.jpg" alt="">
+              <img src="assets/imgs/movie_10.gif" alt="">
             </div>
             <div class="text">
               <img src="assets/imgs/movies_text_bg.png" alt="">
@@ -226,11 +219,15 @@
 
     <!-- star page begin -->
     <div class="star" id="star">
-        <img src="assets/imgs/earth_animate.gif" alt="">
+        <img class="earth" src="assets/imgs/earth_animate.gif" alt="">
+        <img class="next" src="assets/imgs/next_star.gif" alt="">
         <div class="text">
-          <p>下一站</p>
-          <p>人工智能</p>
-          <p>优智皮肤 APP</p>
+          <p class="line1" id="line1">&nbsp;</p>
+          <p class="line2" id="line2">&nbsp;</p>
+          <p class="line3" id="line3">&nbsp;</p>
+        </div>
+        <div class="footer">
+          <p>未完待续......</p>
         </div>
     </div>
     <!-- star page end -->
