@@ -158,13 +158,13 @@
     _html += '<img src="assets/imgs/movies_screen_bg.gif" alt="">';
     _html += '<div class="box">';
     _html +=
-      '<img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.5s" data-ani-delay="0.05s" src="assets/imgs/movie_02_01.png" alt="">';
+      '<img class="animated" data-ani-name="fadeInDown" data-ani-duration="1s" data-ani-delay="0.25s" src="assets/imgs/movie_02_01.png" alt="">';
     _html +=
-      '<img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.5s" data-ani-delay="0.1s" src="assets/imgs/movie_02_02.png" alt="">';
+      '<img class="animated" data-ani-name="fadeInUp" data-ani-duration="1s" data-ani-delay="0.5s" src="assets/imgs/movie_02_02.png" alt="">';
     _html +=
-      '<img class="animated" data-ani-name="fadeInDown" data-ani-duration="0.5s" data-ani-delay="0.15s" src="assets/imgs/movie_02_03.png" alt="">';
+      '<img class="animated" data-ani-name="fadeInDown" data-ani-duration="1s" data-ani-delay="0.75s" src="assets/imgs/movie_02_03.png" alt="">';
     _html +=
-      '<img class="animated" data-ani-name="fadeInUp" data-ani-duration="0.5s" data-ani-delay="0.2s" src="assets/imgs/movie_02_04.png" alt="">';
+      '<img class="animated" data-ani-name="fadeInUp" data-ani-duration="1s" data-ani-delay="1s" src="assets/imgs/movie_02_04.png" alt="">';
     _html += "</div></div>";
     _html += '<div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
