@@ -9,8 +9,15 @@
 
   // ready
   $(function() {
-    preLoadImg();
+    init();
   });
+
+  function init() {
+    // $('#loading').hide();
+    // initMovies();
+
+    preLoadImg();
+  }
 
   // images preload
   function preLoadImg() {
@@ -331,17 +338,27 @@
       .join("");
 
     // slide 7
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
-    _html += "";
+    _html += '<div class="swiper-slide eating-bean-slide">';
+    _html += '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<img src="assets/imgs/movies_screen_bg.gif" alt="">';
+    _html += '<div class="eating-beans" id="eatingBeans">';
+
+    for (var i = 0; i < 18; i++) {
+      _html += '<div class="box">';
+      _html += '<img src="assets/imgs/bean.png" class="bean">';
+      _html += '<img src="assets/imgs/coin.png" class="coin">';
+      _html += '</div>';
+    }
+
+    _html += '<div class="animal">';
+    _html += '<img src="assets/imgs/eating_animate.gif" alt="">';
+    _html += '</div></div></div>';
+    _html += '<div class="text">';
+    _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
+    _html += '<div class="msg">';
+    _html += '<p>您总共收货'+ data.score.recieve +'麦豆</p>';
+    _html += '<p>消费'+ data.score.cost +'麦豆</p>';
+    _html += '</div></div></div>';
 
     // slide 8
     _html += '<div class="swiper-slide">';
@@ -372,6 +389,14 @@
           initAnimationItems();
           playAnimation(this);
         },
+        transitionStart: function() {
+          var activeIndex = this.activeIndex;
+          var slide = this.slides[activeIndex];
+          var isEatingBeanSlide = $(slide).hasClass('eating-bean-slide');
+          if (isEatingBeanSlide) {
+            initAnimalEating();
+          }
+        },
         transitionEnd: function() {
           playAnimation(this);
         },
@@ -388,6 +413,43 @@
         }
       }
     });
+  }
+
+  // 吃豆豆动画
+  function initAnimalEating() {
+    var $eatingBeans = $('#eatingBeans'),
+      $animal = $eatingBeans.find('.animal'),
+      $boxes = $eatingBeans.find('.box'),
+      len = $boxes.length;
+
+    var tl = new TimelineLite();
+    var current = 0;
+    step(current);
+    
+    function step(idx) {
+      var $box = $boxes.eq(idx);
+      var iLeft = $box && $box.position().left;
+      var iTop = $box && $box.position().top;
+
+      if (idx === 0) {
+        $boxes.find('.bean').show().end().find('.coin').hide();
+      }
+
+      tl.clear();
+      tl.to($animal, 1, {
+        left: iLeft,
+        top: iTop,
+        onComplete: function() {
+          $box.find('.bean').hide().siblings('.coin').show();
+          current = current + 1;
+          if (current < len) {
+            setTimeout(function(){
+              step(current);
+            }, 500);
+          }
+        }
+      });
+    }
   }
 
   function initStar() {
