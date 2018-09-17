@@ -1,8 +1,6 @@
 (function(window, document, $, undefined) {
-  var typerAudio = new Howl({
-    src: ["assets/audios/typer.mp3", "assets/audios/typer.aac"]
-  });
 
+  var tl = new TimelineLite();
   var bgmAudio = new Howl({
     src: ["assets/audios/bgm.mp3", "assets/audios/bgm.aac"]
   });
@@ -13,24 +11,20 @@
   });
 
   function init() {
-    // $('#loading').hide();
-    // initMovies();
-
     preLoadImg();
   }
 
   // images preload
   function preLoadImg() {
     var imgs = [
-      "assets/imgs/loading.gif",
-      "assets/imgs/galaxy_bg.gif",
+      "assets/imgs/bean.png",
+      "assets/imgs/coin.png",
       "assets/imgs/earth_animate.png",
+      "assets/imgs/eating_animate_backward.gif",
+      "assets/imgs/eating_animate.gif",
+      "assets/imgs/galaxy_bg.gif",
       "assets/imgs/hand_animate.gif",
-      "assets/imgs/movies_animate.gif",
-      "assets/imgs/movie_player.gif",
-      "assets/imgs/movies_screen_bg.gif",
-      "assets/imgs/movies_text_bg.png",
-      "assets/imgs/player_bg.jpg",
+      "assets/imgs/loading.gif",
       "assets/imgs/movie_01.gif",
       "assets/imgs/movie_02_01.png",
       "assets/imgs/movie_02_02.png",
@@ -45,7 +39,13 @@
       "assets/imgs/movie_05.gif",
       "assets/imgs/movie_06.gif",
       "assets/imgs/movie_07.gif",
-      "assets/imgs/movie_08.gif"
+      "assets/imgs/movie_08.gif",
+      "assets/imgs/movie_10.gif",
+      "assets/imgs/movie_player.gif",
+      "assets/imgs/movies_animate.gif",
+      "assets/imgs/movies_screen_bg.gif",
+      "assets/imgs/movies_text_bg.png",
+      "assets/imgs/next_star_bg.gif"
     ];
 
     $.imgpreload(imgs, {
@@ -63,9 +63,6 @@
 
   // message typer
   function showMessageTyper() {
-    // play typer audio
-    typerAudio.play();
-
     var msgOne = "2015 年 9 月 20 日";
     var msgTwo = "优麦医生 APP 横空出世";
 
@@ -77,7 +74,6 @@
     setTimeout(function() {
       typerTwo.type(msgTwo).end(3000);
       setTimeout(function() {
-        typerAudio.stop();
         setTimeout(function() {
           $("#galaxy")
             .find(".message")
@@ -90,15 +86,15 @@
 
   function initEarth() {
     var $inner = $("#earth .inner");
-    
+
     $inner
-    .on('animationEnd webkitAnimationEnd', function() {
-      fetchData(function() {
-        $inner.find(".hand").fadeIn();
-        $("#firstLoginMsg").fadeIn();
-      });
-    })
-    .addClass('ani');
+      .on("animationEnd webkitAnimationEnd", function() {
+        fetchData(function() {
+          $inner.find(".hand").fadeIn();
+          $("#firstLoginMsg").fadeIn();
+        });
+      })
+      .addClass("ani");
   }
 
   function fetchData(callback) {
@@ -152,8 +148,7 @@
 
     // slide 1
     _html += '<div class="swiper-slide">';
-    _html +=
-      '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html += '<img src="assets/imgs/movie_01.gif" alt="">';
     _html += '</div><div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
@@ -183,8 +178,7 @@
 
     // slide 3
     _html += '<div class="swiper-slide">';
-    _html +=
-      '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html +=
       '<img src="assets/imgs/movie_03_0' +
       data.activeRange.type +
@@ -203,8 +197,7 @@
 
     // slide 4
     _html += '<div class="swiper-slide">';
-    _html +=
-      '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html += '<img src="assets/imgs/movie_04.gif" alt="">';
     _html += "</div>";
     _html += '<div class="text">';
@@ -217,8 +210,7 @@
 
     // slide 5
     _html += '<div class="swiper-slide">';
-    _html +=
-      '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html += '<img src="assets/imgs/movie_05.gif" alt="">';
     _html += "</div>";
     _html += '<div class="text">';
@@ -323,8 +315,7 @@
         }
 
         _inner += '<div class="swiper-slide">';
-        _inner +=
-          '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+        _inner += '<div class="screen">';
         _inner += img;
         _inner += "</div>";
         _inner += '<div class="text">';
@@ -339,7 +330,7 @@
 
     // slide 7
     _html += '<div class="swiper-slide eating-bean-slide">';
-    _html += '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html += '<img src="assets/imgs/movies_screen_bg.gif" alt="">';
     _html += '<div class="eating-beans" id="eatingBeans">';
 
@@ -347,23 +338,23 @@
       _html += '<div class="box">';
       _html += '<img src="assets/imgs/bean.png" class="bean">';
       _html += '<img src="assets/imgs/coin.png" class="coin">';
-      _html += '</div>';
+      _html += "</div>";
     }
 
     _html += '<div class="animal">';
-    _html += '<img src="assets/imgs/eating_animate.gif" alt="">';
-    _html += '</div></div></div>';
+    _html += '<img src="assets/imgs/eating_animate.gif" class="forward">';
+    _html += '<img src="assets/imgs/eating_animate.gif" class="backward">';
+    _html += "</div></div></div>";
     _html += '<div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
     _html += '<div class="msg">';
-    _html += '<p>您总共收货'+ data.score.recieve +'麦豆</p>';
-    _html += '<p>消费'+ data.score.cost +'麦豆</p>';
-    _html += '</div></div></div>';
+    _html += "<p>您总共收货" + data.score.recieve + "麦豆</p>";
+    _html += "<p>消费" + data.score.cost + "麦豆</p>";
+    _html += "</div></div></div>";
 
     // slide 8
     _html += '<div class="swiper-slide">';
-    _html +=
-      '<div class="screen animated" data-ani-name="zoomIn" data-ani-duration="1s" data-ani-delay="0.1s">';
+    _html += '<div class="screen">';
     _html += '<img src="assets/imgs/movie_10.gif" alt="">';
     _html += '</div><div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
@@ -389,12 +380,14 @@
           initAnimationItems();
           playAnimation(this);
         },
-        transitionStart: function() {
+        slideChange: function() {
           var activeIndex = this.activeIndex;
           var slide = this.slides[activeIndex];
-          var isEatingBeanSlide = $(slide).hasClass('eating-bean-slide');
+          var isEatingBeanSlide = $(slide).hasClass("eating-bean-slide");
           if (isEatingBeanSlide) {
-            initAnimalEating();
+            setTimeout(initAnimalEating, 1000);
+          } else {
+            resetAnimalEating();
           }
         },
         transitionEnd: function() {
@@ -407,7 +400,7 @@
 
           setTimeout(function() {
             $movies.fadeOut(function() {
-              initStar();
+              initNext();
             });
           }, 3000);
         }
@@ -417,101 +410,193 @@
 
   // 吃豆豆动画
   function initAnimalEating() {
-    var $eatingBeans = $('#eatingBeans'),
-      $animal = $eatingBeans.find('.animal'),
-      $boxes = $eatingBeans.find('.box'),
+    var $eatingBeans = $("#eatingBeans"),
+      $animal = $eatingBeans.find(".animal"),
+      $boxes = $eatingBeans.find(".box"),
       len = $boxes.length;
 
-    var tl = new TimelineLite();
-    var current = 0;
-    step(current);
-    
-    function step(idx) {
-      var $box = $boxes.eq(idx);
+    var currBean = 0;
+    var direction = "forward";
+    step();
+
+    function step() {
+      var $box = $boxes.eq(currBean);
       var iLeft = $box && $box.position().left;
       var iTop = $box && $box.position().top;
 
-      if (idx === 0) {
-        $boxes.find('.bean').show().end().find('.coin').hide();
+      if (currBean === 0) {
+        $boxes
+          .find(".bean")
+          .show()
+          .end()
+          .find(".coin")
+          .hide();
+        $animal
+          .css({ top: 0 })
+          .find(".backward")
+          .hide()
+          .siblings(".forward")
+          .show();
       }
 
       tl.clear();
       tl.to($animal, 1, {
         left: iLeft,
         top: iTop,
+        onStart: function() {
+          setTimeout(function() {
+            $boxes
+              .eq(currBean)
+              .css({ opacity: 0 })
+              .siblings()
+              .css({ opacity: 1 });
+          }, 500);
+        },
         onComplete: function() {
-          $box.find('.bean').hide().siblings('.coin').show();
-          current = current + 1;
-          if (current < len) {
-            setTimeout(function(){
-              step(current);
-            }, 500);
+          $box
+            .find(".bean")
+            .hide()
+            .siblings(".coin")
+            .show();
+
+          if (currBean < len) {
+            if (direction === "forward") {
+              currBean = currBean + 1;
+              if (currBean === 6) {
+                direction = "backward";
+                currBean = 11;
+
+                tl.clear();
+                tl.to(
+                  $animal,
+                  1,
+                  {
+                    left: "100%",
+                    onStart: function() {
+                      setTimeout(function() {
+                        $boxes.css({ opacity: 1 });
+                      }, 500);
+                    },
+                    onComplete: function() {
+                      var top = $boxes.eq(currBean).position().top;
+                      $animal
+                        .css({ top: top })
+                        .find(".forward")
+                        .hide()
+                        .siblings(".backward")
+                        .show();
+                      if (currBean < len) {
+                        setTimeout(step, 500);
+                      }
+                    }
+                  },
+                  0.5
+                );
+              } else {
+                if (currBean < len) {
+                  setTimeout(step, 500);
+                }
+              }
+            } else {
+              currBean = currBean - 1;
+              if (currBean === 5) {
+                direction = "forward";
+                currBean = 12;
+
+                tl.clear();
+                tl.to(
+                  $animal,
+                  1,
+                  {
+                    left: "-20%",
+                    onStart: function() {
+                      setTimeout(function() {
+                        $boxes.css({ opacity: 1 });
+                      }, 500);
+                    },
+                    onComplete: function() {
+                      var top = $boxes.eq(currBean).position().top;
+                      $animal
+                        .css({ top: top })
+                        .find(".backward")
+                        .hide()
+                        .siblings(".forward")
+                        .show();
+                      if (currBean < len) {
+                        setTimeout(step, 500);
+                      }
+                    }
+                  },
+                  0.5
+                );
+              } else {
+                if (currBean < len) {
+                  setTimeout(step, 500);
+                }
+              }
+            }
           }
         }
       });
     }
   }
 
-  function initStar() {
-    $("#star")
+  function resetAnimalEating() {
+    var $eatingBeans = $("#eatingBeans"),
+      $animal = $eatingBeans.find(".animal"),
+      $boxes = $eatingBeans.find(".box");
+
+    tl.clear();
+    $animal
+      .css({ left: "-20%", top: "-100%" })
+      .find(".backward")
+      .hide()
+      .siblings(".forward")
+      .show();
+    $boxes
+      .find(".bean")
       .show()
-      .find(">img.earth")
-      .animate(
-        {
-          top: "50%"
-        },
-        1000
-      )
-      .animate({}, 200, function() {
-        $(this).css({
-          width: "1%",
-          left: "60%",
-          transition: "width 3s ease-in-out, left 3.5s ease-in-out"
-        });
-      })
-      .on("transitionEnd webkitTransitionEnd", function() {
-        $('#star img.next').fadeIn(1000);
-        initNext();
-        // $("#star .text").fadeIn();
-        // $("#star .footer").fadeIn();
-      });
+      .end()
+      .find(".coin")
+      .hide();
   }
-  
-  var startNext = false;
 
   function initNext() {
-    if (startNext) {
-      return false;
-    }
-    startNext = true;
+    $("#star").fadeIn(3000, function() {
+      
+      $("#star .text").show();
 
-    bgmAudio.stop();
-    typerAudio.play();
-    $("#star .text").show();
+      var line1 = "下一站";
+      var line2 = "人工智能";
+      var line3 = "优智皮肤 APP";
 
-    var line1 = "下一站";
-    var line2 = "人工智能";
-    var line3 = "优智皮肤 APP";
+      var typer1 = new typer("line1");
+      var typer2 = new typer("line2");
+      var typer3 = new typer("line3");
 
-    var typer1 = new typer("line1");
-    var typer2 = new typer("line2");
-    var typer3 = new typer("line3");
+      typer1.end();
+      typer2.end();
+      typer3.end();
 
-    typer1.end();
-    typer2.end();
-    typer3.end();
-
-    typer1.del().type(line1).end(1000);
-    setTimeout(function(){
-      typer2.del().type(line2).end(1000);
+      typer1
+        .del()
+        .type(line1)
+        .end(1000);
       setTimeout(function() {
-        typer3.del().type(line3).end(1000);
+        typer2
+          .del()
+          .type(line2)
+          .end(1000);
         setTimeout(function() {
-          typerAudio.stop();
-          $("#star .footer").fadeIn();
+          typer3
+            .del()
+            .type(line3)
+            .end(1000);
+          setTimeout(function() {
+            $("#star .footer").fadeIn();
+          }, 1000);
         }, 1000);
       }, 1000);
-    }, 1000);
+    });
   }
-
 })(window, document, jQuery);
