@@ -330,7 +330,7 @@
 
     _html += '<div class="animal">';
     _html += '<img src="assets/imgs/eating_animate.gif" class="forward">';
-    _html += '<img src="assets/imgs/eating_animate.gif" class="backward">';
+    _html += '<img src="assets/imgs/eating_animate_backward.gif" class="backward">';
     _html += "</div></div></div>";
     _html += '<div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
