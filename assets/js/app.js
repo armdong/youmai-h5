@@ -349,7 +349,7 @@
 
     $wrapper.html(_html);
   }
-
+·
   function initMovies() {
     var $movies = $("#movies");
 
