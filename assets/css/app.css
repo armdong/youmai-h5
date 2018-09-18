@@ -68,3 +68,5 @@ a, img { -webkit-touch-callout: none; outline: none; }
 .star .text p { font-size: 1.8rem; line-height: 2.2rem; color: #fff; text-align: center; }
 .star .footer { display: none; position: absolute; bottom: 10%; left: 0; width: 100%; }
 .star .footer p { font-size: 2.6rem; line-height: 3rem; text-align: center; color: #fff; }
+.star .share { display: none; position: absolute; top: 1%; right: 5%; width: 40%; }
+.star .share img { width: 100%; }

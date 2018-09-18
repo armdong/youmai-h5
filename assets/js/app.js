@@ -105,7 +105,7 @@
 
   function initEarth() {
     var $inner = $("#earth .inner");
-
+    $inner.find('.img').attr('src', 'assets/imgs/earth_animate.png');
     $inner
       .on("animationEnd webkitAnimationEnd", function() {
         $inner.find(".hand").fadeIn();
@@ -595,7 +595,9 @@
             .type(line3)
             .end(1000);
           setTimeout(function() {
-            $("#star .footer").fadeIn();
+            $("#star .footer").fadeIn(1000, function(){
+              $('#star .share').fadeIn();
+            });
           }, 2000);
         }, 1000);
       }, 1000);
