@@ -12,6 +12,15 @@
 
   function init() {
     preLoadImg();
+
+    // $('#loading').hide();
+    // initMovies();
+    // initNext();
+
+    window.fetchData(function(data) {
+      initMoviePlayer(data);
+      buildAllSlide(data);
+    });
   }
 
   // images preload
@@ -89,13 +98,15 @@
 
     $inner
       .on("animationEnd webkitAnimationEnd", function() {
-        window.fetchData(function(data) {
-          $inner.find(".hand").fadeIn();
-          $("#firstLoginMsg").fadeIn();
+        $inner.find(".hand").fadeIn();
+        $("#firstLoginMsg").fadeIn();
+        // window.fetchData(function(data) {
+        //   $inner.find(".hand").fadeIn();
+        //   $("#firstLoginMsg").fadeIn();
 
-          initMoviePlayer(data);
-          buildAllSlide(data);
-        });
+        //   initMoviePlayer(data);
+        //   buildAllSlide(data);
+        // });
       })
       .addClass("ani");
   }
@@ -335,7 +346,7 @@
     _html += '<div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
     _html += '<div class="msg">';
-    _html += "<p>您总共收货" + data.score.recieve + "麦豆</p>";
+    _html += "<p>您总共" + data.score.recieve + "麦豆</p>";
     _html += "<p>消费" + data.score.cost + "麦豆</p>";
     _html += "</div></div></div>";
 
@@ -404,6 +415,7 @@
 
     var currBean = 0;
     var direction = "forward";
+    $boxes.css({opacity: 1});
     step();
 
     function step() {
@@ -541,6 +553,7 @@
       .siblings(".forward")
       .show();
     $boxes
+      .css({opacity: 1})
       .find(".bean")
       .show()
       .end()
