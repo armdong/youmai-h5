@@ -33,7 +33,6 @@
       "assets/imgs/eating_animate.gif",
       "assets/imgs/galaxy_bg.gif",
       "assets/imgs/hand_animate.gif",
-      "assets/imgs/loading.gif",
       "assets/imgs/movie_01.gif",
       "assets/imgs/movie_02_01.png",
       "assets/imgs/movie_02_02.png",
@@ -54,7 +53,8 @@
       "assets/imgs/movies_animate.gif",
       "assets/imgs/movies_screen_bg.gif",
       "assets/imgs/movies_text_bg.png",
-      "assets/imgs/next_star_bg.gif"
+      "assets/imgs/next_star_bg.gif",
+      "assets/imgs/open_animate_bg.gif"
     ];
 
     $.imgpreload(imgs, {
@@ -64,9 +64,21 @@
       all: function() {
         var $loading = $("#loading");
         $loading.fadeOut(function() {
-          showMessageTyper();
+          initOpen();
         });
       }
+    });
+  }
+
+  function initOpen() {
+    var $opening = $('#opening');
+
+    $opening.on('click', function() {
+      bgmAudio.play();
+      $(this).fadeOut(function() {
+        $('#galaxy').fadeIn();
+        setTimeout(showMessageTyper, 1000);
+      });
     });
   }
 
@@ -78,19 +90,17 @@
     var typerOne = new typer("lineOne");
     var typerTwo = new typer("lineTwo");
 
-    typerOne.type(msgOne).end(2000);
+    typerOne.type(msgOne, 150).end();
     typerTwo.end();
     setTimeout(function() {
-      typerTwo.type(msgTwo).end(3000);
+      typerTwo.type(msgTwo, 150).end();
       setTimeout(function() {
-        setTimeout(function() {
-          $("#galaxy")
-            .find(".message")
-            .hide();
-          initEarth();
-        }, 1000);
-      }, 1800);
-    }, 2000);
+        $("#galaxy")
+          .find(".message")
+          .hide();
+        initEarth();
+      }, 4000);
+    }, 3500);
   }
 
   function initEarth() {
@@ -100,13 +110,6 @@
       .on("animationEnd webkitAnimationEnd", function() {
         $inner.find(".hand").fadeIn();
         $("#firstLoginMsg").fadeIn();
-        // window.fetchData(function(data) {
-        //   $inner.find(".hand").fadeIn();
-        //   $("#firstLoginMsg").fadeIn();
-
-        //   initMoviePlayer(data);
-        //   buildAllSlide(data);
-        // });
       })
       .addClass("ani");
   }
@@ -133,7 +136,6 @@
         1000
       )
       .on("touchstart", ".btn", function(e) {
-        bgmAudio.play();
         $("#earth").fadeOut(1000);
         initMovies();
       });
@@ -346,7 +348,7 @@
     _html += '<div class="text">';
     _html += '<img src="assets/imgs/movies_text_bg.png" alt="">';
     _html += '<div class="msg">';
-    _html += "<p>您总共" + data.score.recieve + "麦豆</p>";
+    _html += "<p>您总共收获" + data.score.recieve + "麦豆</p>";
     _html += "<p>消费" + data.score.cost + "麦豆</p>";
     _html += "</div></div></div>";
 
@@ -594,7 +596,7 @@
             .end(1000);
           setTimeout(function() {
             $("#star .footer").fadeIn();
-          }, 1000);
+          }, 2000);
         }, 1000);
       }, 1000);
     });
