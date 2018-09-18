@@ -64,7 +64,7 @@ a, img { -webkit-touch-callout: none; outline: none; }
 .movies .eating-bean-slide .eating-beans .animal .backward { display: none; }
 
 .star { display: none; position: absolute; top: 0; left: 0; z-index: 100; width: 100%; height: 100%; background-image: url('../imgs/next_star_bg.gif'); background-repeat: no-repeat; background-size: cover; background-position: top center; }
-.star .text { display: none; position: absolute; top: 30%; left: 0; width: 100%; }
+.star .text { display: none; position: absolute; top: 37%; left: 0; width: 100%; }
 .star .text p { font-size: 1.8rem; line-height: 2.2rem; color: #fff; text-align: center; }
 .star .footer { display: none; position: absolute; bottom: 10%; left: 0; width: 100%; }
 .star .footer p { font-size: 2.6rem; line-height: 3rem; text-align: center; color: #fff; }
