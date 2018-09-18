@@ -451,7 +451,7 @@
               .css({ opacity: 0 })
               .siblings()
               .css({ opacity: 1 });
-          }, 500);
+          }, 300);
         },
         onComplete: function() {
           $box
@@ -476,7 +476,7 @@
                     onStart: function() {
                       setTimeout(function() {
                         $boxes.css({ opacity: 1 });
-                      }, 500);
+                      }, 300);
                     },
                     onComplete: function() {
                       var top = $boxes.eq(currBean).position().top;
@@ -487,15 +487,15 @@
                         .siblings(".backward")
                         .show();
                       if (currBean < len) {
-                        setTimeout(step, 500);
+                        setTimeout(step, 50);
                       }
                     }
                   },
-                  0.5
+                  0.1
                 );
               } else {
                 if (currBean < len) {
-                  setTimeout(step, 500);
+                  setTimeout(step, 50);
                 }
               }
             } else {
@@ -513,7 +513,7 @@
                     onStart: function() {
                       setTimeout(function() {
                         $boxes.css({ opacity: 1 });
-                      }, 500);
+                      }, 300);
                     },
                     onComplete: function() {
                       var top = $boxes.eq(currBean).position().top;
@@ -524,15 +524,15 @@
                         .siblings(".forward")
                         .show();
                       if (currBean < len) {
-                        setTimeout(step, 500);
+                        setTimeout(step, 50);
                       }
                     }
                   },
-                  0.5
+                  0.1
                 );
               } else {
                 if (currBean < len) {
-                  setTimeout(step, 500);
+                  setTimeout(step, 50);
                 }
               }
             }
