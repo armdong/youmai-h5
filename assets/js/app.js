@@ -56,8 +56,7 @@
       "assets/imgs/movies_text_bg.png",
       "assets/imgs/next_star_bg.gif",
       "assets/imgs/open_animate_bg.gif",
-      "assets/imgs/share_01.png",
-      "assets/imgs/share_02.png"
+      "assets/imgs/share.gif"
     ];
 
     $.imgpreload(imgs, {
@@ -567,7 +566,7 @@
   }
 
   function initNext() {
-    $("#star").fadeIn(3000, function() {
+    $("#star").fadeIn(1000, function() {
       
       $("#star .text").show();
 
@@ -585,25 +584,25 @@
 
       typer1
         .del()
-        .type(line1)
-        .end(1000);
+        .type(line1, 120)
+        .end();
       setTimeout(function() {
         typer2
           .del()
-          .type(line2)
-          .end(1000);
+          .type(line2, 120)
+          .end();
         setTimeout(function() {
           typer3
             .del()
-            .type(line3)
-            .end(1000);
+            .type(line3, 120)
+            .end();
           setTimeout(function() {
             $("#star .footer").fadeIn(1000, function(){
               $('#star .share').fadeIn();
             });
           }, 2000);
-        }, 1000);
-      }, 1000);
+        }, 1500);
+      }, 1500);
     });
   }
 })(window, document, jQuery);
