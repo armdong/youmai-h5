@@ -1,0 +1,19 @@
+html, body { width: 100%; height: 100%; }
+html { font-size: 62.5%; }
+body { font-size: 12px; font-size: 1.2rem; font-family: 'Microsoft Yahei', SimSun, Helvetica; background-color: #000; }
+
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); padding: 0; margin: 0; }
+a, img { -webkit-touch-callout: none; outline: none; } 
+
+.layout { width: 100%; height: 100%; }
+.layout img { border: none; vertical-align: top; }
+
+.report { position: relative; width: 100%; }
+.report img { width: 100%; }
+
+.report .wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.report .wrapper .top { margin-top: 7rem; margin-bottom: 2rem; }
+.report .wrapper .text { width: 100%; margin: 1rem 0; }
+.report .wrapper .text p { font-size: 1.4rem; text-align: center; line-height: 2rem; }
+.report .wrapper .bold p { font-weight: bold; }
+.report .wrapper .middle, .report .wrapper .bottom { margin-top: 3rem; }
