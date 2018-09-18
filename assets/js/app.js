@@ -29,6 +29,7 @@
       "assets/imgs/bean.png",
       "assets/imgs/coin.png",
       "assets/imgs/earth_animate.png",
+      "assets/imgs/earth_animate.gif",
       "assets/imgs/eating_animate_backward.gif",
       "assets/imgs/eating_animate.gif",
       "assets/imgs/galaxy_bg.gif",
@@ -54,7 +55,9 @@
       "assets/imgs/movies_screen_bg.gif",
       "assets/imgs/movies_text_bg.png",
       "assets/imgs/next_star_bg.gif",
-      "assets/imgs/open_animate_bg.gif"
+      "assets/imgs/open_animate_bg.gif",
+      "assets/imgs/share_01.png",
+      "assets/imgs/share_02.png"
     ];
 
     $.imgpreload(imgs, {
