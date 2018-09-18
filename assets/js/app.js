@@ -99,7 +99,7 @@
           .find(".message")
           .hide();
         initEarth();
-      }, 4000);
+      }, 3000);
     }, 3500);
   }
 

@@ -20,8 +20,8 @@ a, img { -webkit-touch-callout: none; outline: none; }
 .galaxy .message p { font-size: 2rem; line-height: 3rem; text-align: center; }
 
 .galaxy .earth { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.galaxy .earth .inner { position: absolute; top: 50%; left: 80%; transform: translate(-50%, -50%); width: 3%; transition: width 10s linear, left 3s linear; }
-.galaxy .earth .inner.ani { width: 1000%; left: 50%; transition: width 10s linear, left 3s linear; animation: aniFadeIn 10s ease-in-out; }
+.galaxy .earth .inner { position: absolute; top: 50%; left: 80%; transform: translate(-50%, -50%); width: 3%; transition: width 8s ease-in-out, left 3s linear; }
+.galaxy .earth .inner.ani { width: 1000%; left: 50%; transition: width 10s linear, left 3s linear; animation: aniFadeIn 8s ease-in-out; }
 @keyframes aniFadeIn {
   from { width: 3%; left: 80%; }
   to { width: 1000%; left: 50%; }
